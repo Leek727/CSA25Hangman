@@ -1,4 +1,4 @@
-public class Player {
+class Player {
     public String name;
     public int score;
 
