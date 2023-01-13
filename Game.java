@@ -7,6 +7,8 @@ public class Game {
     public int round;
     public int pointvalue;
 
+    private Phrase phraseObject = new Phrase();
+
     Scanner input = new Scanner(System.in);
 
     Player[] players;
