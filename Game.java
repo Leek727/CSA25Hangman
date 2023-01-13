@@ -2,10 +2,10 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Game {
-    public int numplayers;
+    public int numPlayers;
     public boolean solved;
     public int round;
-    public int pointvalue;
+    public int pointValue;
 
     private Phrase phraseObject = new Phrase();
 
@@ -13,14 +13,15 @@ public class Game {
 
     public Player[] players;
 
-    public void play(int numplayers) {
+    public void play(int numPlayers) {
 
+        this.numPlayers = numPlayers;
         this.solved = false;
 
-        Player[] players = new Player[numplayers];
-        for (int i = 0; i < numplayers; i++){
-            players[i] = new Player();
-            players[i].name = getInput("Hello player " + i + ". Please enter your name.");
+        this.players = new Player[numPlayers];
+        for (int i = 0; i < numPlayers; i++){
+            this.players[i] = new Player();
+            this.players[i].name = getInput("Hello player " + i + ". Please enter your name.");
         }
     }
     
@@ -52,6 +53,6 @@ public class Game {
     
     private void changePtValue() {
         Random rand = new Random(); 
-        this.pointvalue = rand.nextInt(10_000_000);
+        this.pointValue = rand.nextInt(10_000_000);
     }
 }
