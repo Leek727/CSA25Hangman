@@ -47,8 +47,6 @@ class Phrase {
             if (this.phraseString.charAt(i) == character) {
                 this.guessedCharacters[i] = character;
                 return true;
-            } else {
-                return false;
             }
         }
         return false;

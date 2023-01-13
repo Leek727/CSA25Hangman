@@ -8,10 +8,9 @@ public class Game {
     public int pointValue;
 
     private Phrase phraseObject = new Phrase();
+    public Player[] players;
 
     Scanner input = new Scanner(System.in);
-
-    public Player[] players;
 
     public void play(int numPlayers) {
 

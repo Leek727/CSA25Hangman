@@ -10,7 +10,5 @@ class Home {
             System.out.println("Player score : " + gameRunner.players[i].score);
             
         }
-
     }
-
 }
