@@ -11,7 +11,7 @@ public class Game {
 
     Scanner input = new Scanner(System.in);
 
-    Player[] players;
+    public Player[] players;
 
     public void play(int numplayers) {
 
@@ -20,7 +20,7 @@ public class Game {
         Player[] players = new Player[numplayers];
         for (int i = 0; i < numplayers; i++){
             players[i] = new Player();
-            players[i].name = "Test";
+            players[i].name = getInput("Hello player " + i + ". Please enter your name.");
         }
     }
     
