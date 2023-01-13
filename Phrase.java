@@ -43,6 +43,14 @@ class Phrase {
     }
 
     private boolean checkCharacter(char character) {
+        for (int i = 0; i < this.phraseString.length(); i++) {
+            if (this.phraseString.charAt(i) == character) {
+                this.guessedCharacters[i] = character;
+                return true;
+            } else {
+                return false;
+            }
+        }
         return false;
     }
 }
