@@ -42,7 +42,7 @@ class Phrase {
         return word;
     }
 
-    private boolean checkCharacter(char character) {
+    public boolean checkCharacter(char character) {
         for (int i = 0; i < this.phraseString.length(); i++) {
             if (this.phraseString.charAt(i) == character) {
                 this.guessedCharacters[i] = character;
@@ -50,5 +50,15 @@ class Phrase {
             }
         }
         return false;
+    }
+
+    public String displayCurrentPhrase() {
+        String workingPhrase = "";
+        for (char character : guessedCharacters) {
+            if (character == 0) {
+                workingPhrase += "_";
+            } 
+        }
+        return workingPhrase;
     }
 }
