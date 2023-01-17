@@ -12,6 +12,7 @@ public class Game {
 
     Scanner input = new Scanner(System.in);
     
+    // called initially
     public void play(int numPlayers) {
 
         //initalize variables
@@ -30,22 +31,46 @@ public class Game {
         System.out.print("\nThe game will now commence: ");
 
         System.out.println(phraseObject.displayCurrentPhrase());
+        
+        
+        // game logic
+        Phrase phrase = new Phrase();
+        Player curPlayer;
+        while (!solved){
+            System.out.println(phrase.displayCurrentPhrase());
+            changePtValue();
+            
+            curPlayer = this.players[round % numPlayers];
+            System.out.println("Guess a char " + curPlayer.name + ": ");
+            if (phrase.checkCharacter(input.next().charAt(0))){
+                curPlayer.score += this.pointValue;
+                System.out.println("Correct! You got " + this.pointValue + " points!");
+            }
+            else {
+                System.out.println("Incorrect!");
+        
+
+            }
+            
+
+            round++;
+
+        }
     }
     
+    // this is called to get the user input, returns the user input string
     private void incrementRound() {
         this.round += 1;
     }
 
-    private void editScore() {
-        //Don't know what this is for
-    }
-
+    // this is called to get the user input, returns the user input string
     private String getInput(String what) {
         System.out.println(what + "\n >:");
         String data = input.next();
         return data;
     }
 
+    // this is called every round after all the players have answered, and prints the scoreboard
     private void displayPts() {
         System.out.println("------------SCOREBOARD------------");
         for (Player player : this.players) {
@@ -54,10 +79,12 @@ public class Game {
         System.out.println("------------------------");
     }
 
+    // this is called after a user wins, and prints their name
     private void victory(String victoriousPlayer) {
         System.out.println("The game has been won by " + victoriousPlayer);
     }
     
+    // this is called every round, and updates the point value with a random number
     private void changePtValue() {
         Random rand = new Random(); 
         this.pointValue = rand.nextInt(10_000_000);
