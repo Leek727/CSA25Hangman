@@ -8,6 +8,9 @@ class Phrase {
     private char[] guessedCharacters;
     public int phraseLength;
     
+    //intializes the phrase class
+    //will occur whenever a game class is intializes
+    //this will create the phrase, length of the phrase and array of guessedCharacters
     public Phrase() {
         //initalize game elements
         this.phraseString = createPhrase();
@@ -15,6 +18,7 @@ class Phrase {
         this.guessedCharacters = new char[phraseLength];
     }
 
+    //this generates a number from 1 to the input variable max
     private int numberGenerator(double max) {
         int number = 0;
         while (number <= 0) { //will never return zero
@@ -23,6 +27,7 @@ class Phrase {
         return number;
     }
 
+    //generates a phrase from the word list
     private String createPhrase() {
         int numberOfWords = numberGenerator(10);
         String buildingPhrase = "";
@@ -32,6 +37,7 @@ class Phrase {
         return buildingPhrase;
     }
 
+    //grabs a random word from the word list
     private String grabRandomWord() {
         String word = null;
         try (Stream<String> words = Files.lines(Paths.get("wordList.txt"))) {
@@ -42,6 +48,7 @@ class Phrase {
         return word;
     }
 
+    //checks if a char character is in the phraseString for the game class
     public boolean checkCharacter(char character) {
         boolean foundChar = false;
         for (int i = 0; i < this.phraseString.length(); i++) {
