@@ -11,7 +11,7 @@ class Phrase {
     public Phrase() {
         //initalize game elements
         this.phraseString = createPhrase();
-        this.phraseLength = phraseString.replaceAll("\\s", "").length();
+        this.phraseLength = phraseString.length();
         this.guessedCharacters = new char[phraseLength];
     }
 
@@ -43,13 +43,14 @@ class Phrase {
     }
 
     public boolean checkCharacter(char character) {
+        boolean foundChar = false;
         for (int i = 0; i < this.phraseString.length(); i++) {
             if (this.phraseString.charAt(i) == character) {
                 this.guessedCharacters[i] = character;
-                return true;
+                foundChar = true;
             }
         }
-        return false;
+        return foundChar;
     }
 
     public String displayCurrentPhrase() {

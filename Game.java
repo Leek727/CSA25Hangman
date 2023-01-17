@@ -14,14 +14,20 @@ public class Game {
 
     public void play(int numPlayers) {
 
+        //initalize variables
         this.numPlayers = numPlayers;
         this.solved = false;
 
+        //add players to the player array
         this.players = new Player[numPlayers];
         for (int i = 0; i < numPlayers; i++){
             this.players[i] = new Player();
-            this.players[i].name = getInput("Hello player " + i + ". Please enter your name.");
+            this.players[i].name = getInput("Hello player " + (i+1) + ". Please enter your name.");
         }
+
+        //Wecome message
+        System.out.println("Welcome to Hangman! In this game you will be given a random phrase that you will need to guess. Each round, every player will have a guess at potential charachters or the entire phrase. If you incorectly guess a character, you will loose points for that round. If you incorectly guess a phrase, you are ejected from the game. The first person to complete the phrase wins the game. Good luck, and have fun!");
+        System.out.print("\nThe game will now commence: ");
     }
     
     private void incrementRound() {
