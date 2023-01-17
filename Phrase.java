@@ -58,7 +58,9 @@ class Phrase {
         for (char character : guessedCharacters) {
             if (character == 0) {
                 workingPhrase += "_";
-            } 
+            } else {
+                workingPhrase += character;
+            }
         }
         return workingPhrase;
     }
