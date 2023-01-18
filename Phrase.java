@@ -18,7 +18,7 @@ class Phrase {
         this.guessedCharacters = new char[phraseLength];
     }
 
-    /*
+    /**
      * Attempt to generate a random number
      * 
      * Precondition:

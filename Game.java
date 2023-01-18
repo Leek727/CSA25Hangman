@@ -34,26 +34,22 @@ public class Game {
         
         
         // game logic
-        Phrase phrase = new Phrase();
-        Player curPlayer;
-        while (!solved){
-            System.out.println(phrase.displayCurrentPhrase());
+        while (!solved) {
+            System.out.println("ROUND " + this.round + ": " + phraseObject.displayCurrentPhrase());
             changePtValue();
             
-            curPlayer = this.players[round % numPlayers];
-            System.out.println("Guess a char " + curPlayer.name + ": ");
-            if (phrase.checkCharacter(input.next().charAt(0))){
-                curPlayer.score += this.pointValue;
-                System.out.println("Correct! You got " + this.pointValue + " points!");
+            for (Player curPlayer : players) {
+                System.out.println("Guess a char " + curPlayer.name + ": ");
+                if (phraseObject.checkCharacter(input.next().charAt(0))){
+                    curPlayer.score += this.pointValue;
+                    System.out.println("Correct! You got " + this.pointValue + " points!");
+                }
+                else {
+                    System.out.println("Incorrect!");
+                }
             }
-            else {
-                System.out.println("Incorrect!");
-        
 
-            }
-            
-
-            round++;
+            incrementRound();
 
         }
     }
