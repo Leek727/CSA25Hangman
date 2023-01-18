@@ -41,7 +41,8 @@ class Phrase {
         for (int i = 0; i < numberOfWords; i++) {
             buildingPhrase = buildingPhrase + " " + grabRandomWord() + " ";
         }
-        return buildingPhrase;
+        return "cbt";
+        //return buildingPhrase;
     }
 
     //grabs a random word from the word list

@@ -37,21 +37,37 @@ public class Game {
         Phrase phrase = new Phrase();
         Player curPlayer;
         while (!solved){
-            System.out.println(phrase.displayCurrentPhrase());
             changePtValue();
             
-            curPlayer = this.players[round % numPlayers];
-            System.out.println("Guess a char " + curPlayer.name + ": ");
-            if (phrase.checkCharacter(input.next().charAt(0))){
-                curPlayer.score += this.pointValue;
-                System.out.println("Correct! You got " + this.pointValue + " points!");
-            }
-            else {
-                System.out.println("Incorrect!");
-        
+            System.out.println("ROUND : " + (int)(round / numPlayers) + "POINTS FOUR ROUND: " + this.pointValue);
+            displayPts();
+            System.out.println(phrase.displayCurrentPhrase());
 
+
+            curPlayer = this.players[round % numPlayers];
+
+
+            System.out.println("Guess the phrase (a) or guess the character (b) : ");
+            if (input.next().charAt(0) == 'a'){
+                System.out.println("Input phrase: ");
+                if (phrase.phraseString.equals(input.next())){
+                    victory(curPlayer.name);
+                    break;
+                }
+                else{
+                    System.out.println("Wrong!");
+                }
             }
-            
+            else{
+                System.out.println("Guess a char " + curPlayer.name + ": ");
+                if (phrase.checkCharacter(input.next().charAt(0))){
+                    curPlayer.score += this.pointValue;
+                    System.out.println("Correct! You got " + this.pointValue + " points!");
+                }
+                else {
+                    System.out.println("Incorrect!");
+                }
+            }
 
             round++;
 
