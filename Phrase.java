@@ -18,7 +18,14 @@ class Phrase {
         this.guessedCharacters = new char[phraseLength];
     }
 
-    //this generates a number from 1 to the input variable max
+    /*
+     * Attempt to generate a random number
+     * 
+     * Precondition:
+     *      parameter 'max' must exist as a double
+     * Postcondition:
+     *      modifies the int number to return a random number from zero to max
+     */
     private int numberGenerator(double max) {
         int number = 0;
         while (number <= 0) { //will never return zero
