@@ -40,14 +40,14 @@ public class Game {
             
             for (Player curPlayer : players) {
                 System.out.println("Guess the phrase (a) or guess the character (b) : ");
-                if (input.next().charAt(0) == 'a'){
+                if (input.next().charAt(0) == 'a') {
                     System.out.println("Input phrase: ");
-                    if (phraseObject.phraseString.equals(input.next())){
+                    if (phraseObject.checkEntirePhrase(input.next())) {
                         victory(curPlayer.name);
                         solved = true;
                         break;
                     }
-                    else{
+                    else {
                         System.out.println("Wrong!");
                     }
                 }

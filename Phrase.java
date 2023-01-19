@@ -4,7 +4,7 @@ import java.nio.file.Paths;
 import java.util.stream.*;
 
 class Phrase {
-    public String phraseString; //made this pulic for debuging
+    private String phraseString; //made this pulic for debuging
     private char[] guessedCharacters;
     public int phraseLength;
     
@@ -77,5 +77,14 @@ class Phrase {
             }
         }
         return workingPhrase;
+    }
+
+    public boolean checkEntirePhrase(String input) {
+        if (this.phraseString.equals(input)) {
+            return true;
+        }
+        else {
+            return false;
+        }
     }
 }
