@@ -18,7 +18,7 @@ class Phrase {
         this.guessedCharacters = new char[phraseLength];
     }
 
-    /*
+    /**
      * Attempt to generate a random number
      * 
      * Precondition:
@@ -41,8 +41,7 @@ class Phrase {
         for (int i = 0; i < numberOfWords; i++) {
             buildingPhrase = buildingPhrase + " " + grabRandomWord() + " ";
         }
-        return "cbt";
-        //return buildingPhrase;
+        return buildingPhrase;
     }
 
     //grabs a random word from the word list

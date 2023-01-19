@@ -34,44 +34,37 @@ public class Game {
         
         
         // game logic
-        Phrase phrase = new Phrase();
-        Player curPlayer;
-        while (!solved){
+        while (!solved) {
+            System.out.println("ROUND " + this.round + ": " + phraseObject.displayCurrentPhrase());
             changePtValue();
             
-            System.out.println("ROUND : " + (int)(round / numPlayers) + "POINTS FOUR ROUND: " + this.pointValue);
-            displayPts();
-            System.out.println(phrase.displayCurrentPhrase());
-
-
-            curPlayer = this.players[round % numPlayers];
-
-
-            System.out.println("Guess the phrase (a) or guess the character (b) : ");
-            if (input.next().charAt(0) == 'a'){
-                System.out.println("Input phrase: ");
-                if (phrase.phraseString.equals(input.next())){
-                    victory(curPlayer.name);
-                    break;
-                }
-                else{
-                    System.out.println("Wrong!");
-                }
-            }
-            else{
-                System.out.println("Guess a char " + curPlayer.name + ": ");
-                if (phrase.checkCharacter(input.next().charAt(0))){
-                    curPlayer.score += this.pointValue;
-                    System.out.println("Correct! You got " + this.pointValue + " points!");
+            for (Player curPlayer : players) {
+                System.out.println("Guess the phrase (a) or guess the character (b) : ");
+                if (input.next().charAt(0) == 'a'){
+                    System.out.println("Input phrase: ");
+                    if (phraseObject.phraseString.equals(input.next())){
+                        victory(curPlayer.name);
+                        solved = true;
+                        break;
+                    }
+                    else{
+                        System.out.println("Wrong!");
+                    }
                 }
                 else {
-                    System.out.println("Incorrect!");
+                    System.out.println("Guess a char " + curPlayer.name + ": ");
+                    if (phraseObject.checkCharacter(input.next().charAt(0))){
+                        curPlayer.score += this.pointValue;
+                        System.out.println("Correct! You got " + this.pointValue + " points!");
+                    }
+                    else {
+                        System.out.println("Incorrect!");
+                    }
                 }
             }
-
-            round++;
-
-        }
+            incrementRound();
+        }      
+        
     }
     
     // this is called to get the user input, returns the user input string
