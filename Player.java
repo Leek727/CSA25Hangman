@@ -1,12 +1,14 @@
 class Player {
     public String name;
     public int score;
+    public boolean ejected;
 
     //intialize the player as a class
     //there are no specific preconditions
     public Player(){
         this.name = "";
         this.score = 0;
+        this.ejected = false;
     }
 
     //edits the name of the player class
