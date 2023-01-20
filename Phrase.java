@@ -59,11 +59,12 @@ class Phrase {
     public boolean checkCharacter(char character) {
         boolean foundChar = false;
         for (int i = 0; i < this.phraseString.length(); i++) {
-            if (this.phraseString.charAt(i) == character) {
+            if (this.guessedCharacters[i] == character) {
+                return foundChar;
+            }
+            else if (this.phraseString.charAt(i) == character) {
                 this.guessedCharacters[i] = character;
                 foundChar = true;
-            } else if (this.guessedCharacters[i] == character) {
-                return foundChar;
             }
         }
         return foundChar;
