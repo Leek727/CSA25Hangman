@@ -36,7 +36,7 @@ class Phrase {
 
     //generates a phrase from the word list
     private String createPhrase() {
-        int numberOfWords = numberGenerator(10);
+        int numberOfWords = numberGenerator(6);
         String buildingPhrase = "";
         for (int i = 0; i < numberOfWords; i++) {
             buildingPhrase = buildingPhrase + " " + grabRandomWord() + " ";

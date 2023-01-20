@@ -28,7 +28,7 @@ public class Game {
 
         //Wecome message
         System.out.println("Welcome to Hangman! In this game you will be given a random phrase that you will need to guess. Each round, every player will have a guess at potential charachters or the entire phrase. If you incorectly guess a character, you will loose points for that round. If you incorectly guess a phrase, you are ejected from the game. The first person to complete the phrase wins the game. Good luck, and have fun!");
-        System.out.print("\nThe game will now commence: ");
+        System.out.println("The game will now commence: \n");
         
         // game logic
         while (!solved) {
@@ -39,7 +39,7 @@ public class Game {
             displayPts();
             
             for (Player curPlayer : this.players) {
-                System.out.println("---" + curPlayer.name + "'s Turn---");
+                System.out.println("\n---" + curPlayer.name + "'s Turn---");
                 System.out.println("Guess the phrase (a) or guess the character (b) : ");
                 if (input.next().charAt(0) == 'a') {
                     System.out.println("Input phrase: ");
@@ -63,7 +63,6 @@ public class Game {
                         System.out.println("Incorrect! You have lost points... ");
                     }
                 }
-                System.out.println("------");
             }
             incrementRound();
             System.out.print("\033[H\033[2J");
