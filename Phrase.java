@@ -6,15 +6,14 @@ import java.util.stream.*;
 class Phrase {
     private String phraseString; //made this pulic for debuging
     private char[] guessedCharacters;
-    public int phraseLength;
-    
+
     //intializes the phrase class
     //will occur whenever a game class is intializes
     //this will create the phrase, length of the phrase and array of guessedCharacters
     public Phrase() {
         //initalize game elements
         this.phraseString = createPhrase();
-        this.phraseLength = phraseString.length();
+        int phraseLength = phraseString.length();
         this.guessedCharacters = new char[phraseLength];
     }
 

@@ -23,7 +23,7 @@ public class Game {
         this.players = new Player[numPlayers];
         for (int i = 0; i < numPlayers; i++){
             this.players[i] = new Player();
-            this.players[i].name = getInput("Hello player " + (i+1) + ". Please enter your name.");
+            this.players[i].editName(getInput("Hello player " + (i+1) + ". Please enter your name."));
         }
 
         //Wecome message
@@ -40,37 +40,37 @@ public class Game {
             displayPts();
             
             for (Player curPlayer : this.players) {
-                if (!curPlayer.ejected) {
-                    System.out.println("\n---" + curPlayer.name + "'s Turn---");
+                if (!curPlayer.getEjected()) {
+                    System.out.println("\n---" + curPlayer.getName() + "'s Turn---");
                     System.out.println("Guess the phrase (a) or guess the character (b) : ");
                     if (input.next().charAt(0) == 'a') {
                         System.out.println("Input phrase: ");
                         if (phraseObject.checkEntirePhrase(input.next())) {
-                            victory(curPlayer.name);
+                            victory(curPlayer.getName());
                             solved = true;
                             break;
                         }
                         else {
                             System.out.println("Wrong! You have been ejected from the game!");
-                            curPlayer.ejected = true;
+                            curPlayer.editEjected(true);
                         }
                     }
                     else {
-                        System.out.println("Guess a char " + curPlayer.name + ": ");
+                        System.out.println("Guess a char " + curPlayer.getName() + ": ");
                         if (phraseObject.checkCharacter(input.next().charAt(0))){
-                            curPlayer.score += this.pointValue;
+                            curPlayer.editScore(this.pointValue);
                             System.out.println("Correct! You got " + this.pointValue + " points!");
     
                                                     
                             // check if wom
                             if (phraseObject.checkIfWon()){
-                                victory(curPlayer.name);
+                                victory(curPlayer.getName());
                                 solved = true;
                                 break;
                             }
                         }
                         else {
-                            curPlayer.score -= this.pointValue;
+                            curPlayer.editScore(-this.pointValue);
                             System.out.println("Incorrect! You have lost points... ");
                         } 
                     }
@@ -101,7 +101,7 @@ public class Game {
     private void displayPts() {
         System.out.println("------------SCOREBOARD------------");
         for (Player player : this.players) {
-            System.out.println(player.name + ": " + player.score);
+            System.out.println(player.getName() + ": " + player.getScore());
         }
         System.out.println("------------------------");
     }
