@@ -2,13 +2,12 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Game {
-    public int numPlayers;
-    public boolean solved;
-    public int round;
-    public int pointValue;
+    private boolean solved;
+    private int round;
+    private int pointValue;
 
     private Phrase phraseObject = new Phrase();
-    public Player[] players;
+    private Player[] players;
 
     Scanner input = new Scanner(System.in);
     
@@ -16,7 +15,6 @@ public class Game {
     public void play(int numPlayers) {
 
         //initalize variables
-        this.numPlayers = numPlayers;
         this.solved = false;
 
         //add players to the player array
