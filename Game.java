@@ -29,16 +29,17 @@ public class Game {
         //Wecome message
         System.out.println("Welcome to Hangman! In this game you will be given a random phrase that you will need to guess. Each round, every player will have a guess at potential charachters or the entire phrase. If you incorectly guess a character, you will loose points for that round. If you incorectly guess a phrase, you are ejected from the game. The first person to complete the phrase wins the game. Good luck, and have fun!");
         System.out.print("\nThe game will now commence: ");
-
-        System.out.println(phraseObject.displayCurrentPhrase());
-        
         
         // game logic
         while (!solved) {
-            System.out.println("ROUND " + this.round + ": " + phraseObject.displayCurrentPhrase());
+
+            System.out.println("ROUND " + (this.round + 1) + ": " + phraseObject.displayCurrentPhrase());
             changePtValue();
+            System.out.println("Points for this round: " + this.pointValue);
+            displayPts();
             
-            for (Player curPlayer : players) {
+            for (Player curPlayer : this.players) {
+                System.out.println("---" + curPlayer.name + "'s Turn---");
                 System.out.println("Guess the phrase (a) or guess the character (b) : ");
                 if (input.next().charAt(0) == 'a') {
                     System.out.println("Input phrase: ");
@@ -48,7 +49,7 @@ public class Game {
                         break;
                     }
                     else {
-                        System.out.println("Wrong!");
+                        System.out.println("Wrong! You have been ejected from the game!");
                     }
                 }
                 else {
@@ -58,12 +59,15 @@ public class Game {
                         System.out.println("Correct! You got " + this.pointValue + " points!");
                     }
                     else {
-                        System.out.println("Incorrect!");
+                        curPlayer.score -= this.pointValue;
+                        System.out.println("Incorrect! You have lost points... ");
                     }
                 }
+                System.out.println("------");
             }
             incrementRound();
-        }      
+            System.out.print("\033[H\033[2J");
+        }
         
     }
     

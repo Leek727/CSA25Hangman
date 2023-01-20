@@ -52,7 +52,7 @@ class Phrase {
         } catch (IOException e) {
             System.out.println("Problem getting word.");
         }
-        return word;
+        return word.stripLeading().stripTrailing();
     }
 
     //checks if a char character is in the phraseString for the game class
@@ -62,6 +62,8 @@ class Phrase {
             if (this.phraseString.charAt(i) == character) {
                 this.guessedCharacters[i] = character;
                 foundChar = true;
+            } else if (this.guessedCharacters[i] == character) {
+                return foundChar;
             }
         }
         return foundChar;
