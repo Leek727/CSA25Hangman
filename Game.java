@@ -33,6 +33,7 @@ public class Game {
         // game logic
         while (!solved) {
 
+            System.out.print("\033[H\033[2J");
             System.out.println("ROUND " + (this.round + 1) + ": " + phraseObject.displayCurrentPhrase());
             changePtValue();
             System.out.println("Points for this round: " + this.pointValue);
@@ -57,6 +58,13 @@ public class Game {
                     if (phraseObject.checkCharacter(input.next().charAt(0))){
                         curPlayer.score += this.pointValue;
                         System.out.println("Correct! You got " + this.pointValue + " points!");
+                        
+                        // check if wom
+                        if (phraseObject.checkIfWon()){
+                            victory(curPlayer.name);
+                            solved = true;
+                            break;
+                        }
                     }
                     else {
                         curPlayer.score -= this.pointValue;
@@ -65,7 +73,6 @@ public class Game {
                 }
             }
             incrementRound();
-            System.out.print("\033[H\033[2J");
         }
         
     }

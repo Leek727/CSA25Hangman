@@ -90,4 +90,12 @@ class Phrase {
             return false;
         }
     }
+
+    public boolean checkIfWon(){
+        for (char character : guessedCharacters) {
+            if (character == 0)
+                return false;
+        }
+        return true;
+    }
 }
