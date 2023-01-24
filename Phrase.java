@@ -40,7 +40,7 @@ class Phrase {
         for (int i = 0; i < numberOfWords; i++) {
             buildingPhrase = buildingPhrase + " " + grabRandomWord() + " ";
         }
-        return buildingPhrase;
+        return buildingPhrase.toLowerCase();
     }
 
     //grabs a random word from the word list
