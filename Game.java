@@ -89,7 +89,7 @@ public class Game {
 
     // this is called to get the user input, returns the user input string
     private String getInput(String what) {
-        System.out.println(what + "\n >:");
+        System.out.print(what + "\n >:");
         String data = input.next();
         return data;
     }
