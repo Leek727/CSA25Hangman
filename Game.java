@@ -29,7 +29,15 @@ public class Game {
         System.out.println("The game will now commence: \n");
         
         // game logic
-        while (!solved) {
+        while (!this.solved) {
+            /*
+            boolean allEject = true;
+            for (Player curPlayer : this.players) {
+                if (curPlayer.getEjected() != true) allEject = false;
+                else {
+                    
+                }
+            }  */
 
             System.out.print("\033[H\033[2J");
             System.out.println("ROUND " + (this.round + 1) + ": " + phraseObject.displayCurrentPhrase());
@@ -45,7 +53,7 @@ public class Game {
                         System.out.println("Input phrase: ");
                         if (phraseObject.checkEntirePhrase(input.next())) {
                             victory(curPlayer.getName());
-                            solved = true;
+                            this.solved = true;
                             break;
                         }
                         else {
@@ -62,7 +70,7 @@ public class Game {
                             // check if wom
                             if (phraseObject.checkIfWon()){
                                 victory(curPlayer.getName());
-                                solved = true;
+                                this.solved = true;
                                 break;
                             }
                         }
