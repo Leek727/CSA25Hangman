@@ -58,7 +58,6 @@ public class Game {
                         if (phraseObject.checkCharacter(input.next().charAt(0))){
                             curPlayer.editScore(this.pointValue);
                             System.out.println("Correct! You got " + this.pointValue + " points!");
-    
                                                     
                             // check if wom
                             if (phraseObject.checkIfWon()){
